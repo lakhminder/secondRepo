@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" namespace="/example1" extends="struts-default">
+		
+		<action name="getTutorial"
+			class="org.lucky.struts2.example1.action.TutorialAction">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/failure.jsp</result>
+		</action>
+	</package>
+	
+	<package name="example2Package" namespace="/example2NameSpace" extends="struts-default">
+		
+		<action name="getTutorial"
+			class="org.lucky.struts2.example2.action.TutorialAction">
+			<result name="success">/example3/success.jsp</result>
+			<result name="fail">/failure.jsp</result>
+		</action>
+	</package>
+	
+	<package name="example3" namespace="/example3" extends="struts-default">
+		
+		<action name="login"
+			class="org.lucky.struts2.example3Login.action.LoginAction">
+			<result name="success">/example3/success.jsp</result>
+			<result name="failure">/example3/login.jsp</result>
+		</action>
+		
+		<action name="loginPage">
+	 		<result >/example3/login.jsp</result>
+	 	</action>
+	</package>
+	
+	<package name="example4" namespace="/example4" extends="struts-default">
+		
+		<action name="login"
+			class="org.lucky.struts2.example4ActionSupport.action.LoginAction">
+			<result name="success">/example4/success.jsp</result>
+			<result name="failure">/example4/login.jsp</result>
+			<result name="input">/example4/login.jsp</result>
+		</action>
+		
+		<action name="loginPage">
+	 		<result >/example4/login.jsp</result>
+	 	</action>
+	</package>
+	
+	<package name="example5" namespace="/example5" extends="struts-default">
+		
+		<action name="login_*" method="{1}"
+			class="org.lucky.struts2.example5Method.action.LoginAction">
+			<result name="success">/success.jsp</result>
+			
+		</action>
+		
+	</package>
+	
+	<package name="example6" namespace="/example6" extends="struts-default">
+		
+		<action name="login"
+			class="org.lucky.struts2.example6ModelObject.action.LoginAction">
+			<result name="success">/example6/success.jsp</result>
+			<result name="failure">/example6/login.jsp</result>
+		</action>
+		
+		<action name="loginPage">
+	 		<result >/example6/login.jsp</result>
+	 	</action>
+	</package>
+	
+	<package name="example7" namespace="/example7" extends="struts-default">
+		
+		<action name="login"
+			class="org.lucky.struts2.example7ModelDriven.action.LoginAction">
+			<result name="success">/example7/success.jsp</result>
+			<result name="failure">/example7/login.jsp</result>
+		</action>
+		
+		<action name="loginPage">
+	 		<result >/example7/login.jsp</result>
+	 	</action>
+	</package>
+</struts> 

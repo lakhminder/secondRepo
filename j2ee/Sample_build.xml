@@ -1,0 +1,282 @@
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com)  -->
+<project name="Snore" default="help" basedir=".">
+
+	<property environment="env"/>
+
+    <property file="build-local.properties"/>
+    <property file="build.properties"/>
+
+    <property name="build.dir" value="${basedir}/build"/>
+    <property name="resource.dir" value="${basedir}/resources"/>
+    <property name="weblogic.url" value="t3://${weblogic.hostname}:${weblogic.port}"/>
+    <property name="lib.dir" value="../../lib"/>
+    <property name="dist.dir" value="${build.dir}/dist"/>
+    <property name="docs.dir" value="${build.dir}/docs"/>
+    <property name="code.dir" value="${build.dir}/code"/>
+    <property name="stage.dir" value="${build.dir}/stage"/>
+    <property name="sql.dir" value="${basedir}/sql"/>
+    <property name="web.dir" value="${build.dir}/web"/>
+
+    <!-- Set the compile class.path -->
+    <path id="compile.class.path">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+        <pathelement path="${lib.dir}/weblogic/weblogic.jar"/>
+    </path>
+
+    <!-- Build the project -->
+	<target name="build" depends="clean, init, compile_ejb, jar_application, war_application, ear_application"/>
+
+	<!-- Sets up external configuration necessary for the rule engine to run. Sets up sql tables, stored procedures, and JMS resources in BEA. Only needs to be executed once-->
+	<target name="setup" depends="load_sql, jms_resources, setup_quartz"/>
+
+	<!-- Sets up  the Quartz configuration. This should only be run once, and only by one deployment per BEA server -->
+	<target name="setup_quartz" depends="qtz_tables, create_qtz_user"/>
+
+	<!-- Creates the oracle tables and stored procedures required by the SNORE component -->
+	<target name="load_sql" depends="load_calendar, create_snore_table, load_snore_functions"/>
+
+        <!-- Initialize - build directories that are required regardless of task -->
+	<target name="init">
+
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${code.dir}"/>
+        <mkdir dir="${stage.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${code.dir}/lib"/>
+        <mkdir dir="${code.dir}/META-INF"/>
+        <mkdir dir="${web.dir}/WEB-INF/classes"/>
+        <mkdir dir="${web.dir}/WEB-INF/lib"/>
+        <copy file="${resource.dir}/ejb-jar.xml" tofile="${code.dir}/META-INF/ejb-jar.xml"/>
+        <copy file="${resource.dir}/weblogic-ejb-jar.xml" tofile="${code.dir}/META-INF/weblogic-ejb-jar.xml"/>
+        <copy file="${resource.dir}/weblogic-cmp-rdbms-jar.xml" tofile="${code.dir}/META-INF/weblogic-cmp-rdbms-jar.xml"/>
+        <copy file="${resource.dir}/jndi.properties" tofile="${code.dir}/jndi.properties"/>
+        <copy file="${resource.dir}/jndi.properties" tofile="${web.dir}/WEB-INF/classes/jndi.properties"/>
+        <copy file="${resource.dir}/web.xml" tofile="${web.dir}/web.xml"/>
+        <copy file="${resource.dir}/quartz.properties" tofile="${web.dir}/WEB-INF/classes/quartz.properties"/>
+        <copy file="${lib.dir}/quartz/quartz.jar" tofile="${stage.dir}/quartz.jar"/>
+        <copy file="${lib.dir}/apache-commons/commons-logging.jar" tofile="${stage.dir}/commons-logging.jar"/>
+        <copy file="${lib.dir}/apache-commons/commons-dbcp.jar" tofile="${stage.dir}/commons-dbcp.jar"/>
+        <copy file="${lib.dir}/apache-commons/commons-pool.jar" tofile="${stage.dir}/commons-pool.jar"/>
+        <copy file="${lib.dir}/apache-commons/commons-collections.jar" tofile="${stage.dir}/commons-collections.jar"/>
+        <copy todir="${code.dir}">
+        		<fileset dir="${basedir}/etc" includes="*.xsl"/>
+        </copy>
+    </target>
+
+	<!-- Compile ejb classes into the build directory (jar preparation)-->
+	<target name="compile_ejb" depends="init">
+           <javac srcdir="${basedir}" destdir="${code.dir}" classpathref="compile.class.path"/>
+	 </target>
+
+    <!-- Make a standard ejb jar file, including descriptors-->
+	<target name="jar_application" depends="compile_ejb">
+		<jar basedir="${code.dir}" includes="*.xsl, *.properties, META-INF/*.xml, com/bt/csam/oms/snore/** com/mslv/oms/automation/plugin/**" destfile="${dist.dir}/${application.name}_${application.version}.jar" excludes="com/bt/csam/oms/snore/SnoreStartup.class">
+			<manifest>
+                <attribute name="Class-Path" value="quartz.jar commons-logging.jar commons-dbcp.jar commons-pool.jar commons-collections.jar"/>
+    		</manifest>
+		</jar>
+	</target>
+
+    <!-- Make a standard war file for the Quartz startup servlet -->
+    <target name="war_application">
+        <copy file="${code.dir}/com/bt/csam/oms/snore/SnoreStartup.class" tofile="${web.dir}/WEB-INF/classes/com/bt/csam/oms/snore/SnoreStartup.class"/>
+      	<war destfile="${dist.dir}/qrtz_start.war" basedir="${web.dir}" webxml="${web.dir}/web.xml" excludes="web.xml">
+      	    <manifest>
+      		    <attribute name="Class-Path" value="${application.name}_${application.version}.jar quartz.jar commons-logging.jar commons-dbcp.jar commons-pool.jar commons-collections.jar"/>
+    		</manifest>
+        </war>
+    </target>
+
+    <!-- Make a standard ear file -->
+    <target name="ear_application" depends="jar_application">
+        <mkdir dir="${stage.dir}/META-INF"/>
+        <copy file="${resource.dir}/application.xml" tofile="${stage.dir}/META-INF/application.xml"/>
+        <copy file="${dist.dir}/${application.name}_${application.version}.jar" tofile="${stage.dir}/${application.name}_${application.version}.jar"/>
+        <copy file="${dist.dir}/qrtz_start.war" tofile="${stage.dir}/qrtz_start.war"/>
+        <jar basedir="${stage.dir}" includes=" META-INF/application.xml *.jar qrtz_start.war ${application.name}_${application.version}.jar" destfile="${dist.dir}/${application.name}_${application.version}.ear"/>
+    </target>
+
+    <!-- Deploy the project -->
+	<target name="deploy">
+	    <copy todir="${bea.apps.dir}">
+			<fileset dir="${dist.dir}">
+		        <include name="*.ear"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Updates the xml descriptors for the SNORE component with values specified in build.properties -->
+	<target name="update_descriptor" depends="declare_xmltask">
+
+		<xmltask source="resources/ejb-jar.xml" dest="resources/ejb-jar.xml" preserveType="true">
+			<replace path="ejb-jar/enterprise-beans/message-driven/env-entry[2]/env-entry-value/text()">${queue.connectionFactory}</replace>
+		</xmltask>
+
+		<xmltask source="resources/weblogic-ejb-jar.xml" dest="resources/weblogic-ejb-jar.xml" preserveType="true">
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[1]/destination-jndi-name/text()">${checkrule.request.queue}</replace>
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[1]/reference-descriptor/resource-description[1]/jndi-name/text()">${oms.datasource}</replace>
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[1]/reference-descriptor/resource-description[2]/jndi-name/text()">${pew.datasource}</replace>
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[1]/reference-descriptor/resource-description[3]/jndi-name/text()">${queue.connectionFactory}</replace>
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[2]/destination-jndi-name/text()">${datachange.request.queue}</replace>
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[2]/reference-descriptor/resource-description[1]/jndi-name/text()">${oms.datasource}</replace>
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[2]/reference-descriptor/resource-description[2]/jndi-name/text()">${pew.datasource}</replace>
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[2]/reference-descriptor/resource-description[3]/jndi-name/text()">${queue.connectionFactory}</replace>
+			<replace path="weblogic-ejb-jar/weblogic-enterprise-bean[3]/destination-jndi-name/text()">${canceljob.request.queue}</replace>
+		</xmltask>
+
+		<xmltask source="resources/weblogic-cmp-rdbms-jar.xml" dest="resources/weblogic-cmp-rdbms-jar.xml" preserveType="true">
+			<replace path="weblogic-rdbms-jar/weblogic-rdbms-bean/data-source-name/text()">${snore.datasource}</replace>
+		</xmltask>
+
+		<xmltask source="resources/web.xml" dest="resources/web.xml" preserveType="true">
+			<replace path="web-app/servlet/init-param[1]/param-value/text()">${oms.datasource}</replace>
+			<replace path="web-app/servlet/init-param[2]/param-value/text()">${snore.datasource}</replace>
+			<replace path="web-app/servlet/init-param[3]/param-value/text()">${pew.datasource}</replace>
+			<replace path="web-app/servlet/init-param[4]/param-value/text()">${queue.connectionFactory}</replace>
+			<replace path="web-app/servlet/init-param[5]/param-value/text()">${datachange.request.queue}</replace>
+		</xmltask>
+    </target>
+
+	<!-- Declares the xmltask taskdef -->
+	<target name="declare_xmltask">
+		<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask" classpathref="compile.class.path"/>
+	</target>
+
+	<!-- Loads in the stored procedures to access OMS's calendar information. Required to validation "schedule" tasks -->
+	<target name="load_calendar">
+        <exec executable="sqlplus" dir="${sql.dir}">
+            <arg line="${oms.db.user}/${oms.db.password}@${oms.db.server}"/>
+            <arg line="@loadCalendarFunctions.sql"/>
+        </exec>
+	</target>
+	<!-- Loads in the stored procedures to access snore's stored workgroup/lastModified value pairs.. Required to validate "schedule" tasks -->
+	<target name="load_snore_functions">
+        <exec executable="sqlplus" dir="${sql.dir}">
+            <arg line="${snore.db.user}/${snore.db.password}@${snore.db.server}"/>
+            <arg line="@loadSnoreFunctions.sql"/>
+        </exec>
+	</target>
+	<!-- Creates a table called snore_request which stores the details of suspended messages. -->
+	<target name="create_snore_table">
+	    <exec executable="sqlplus" dir="${sql.dir}">
+            <arg line="${snore.db.user}/${snore.db.password}@${snore.db.server}"/>
+            <arg line="@createRuleRequestTable.sql"/>
+        </exec>
+	</target>
+
+	<!-- Creates the JMS resources required by the rule engine -->
+	<target name="jms_resources" depends="declare_jmx">
+		<echo message="Creating the JMS resources that are required by SNORE......"/>
+		<createMBean name=":Name=queue_connection_factory,Type=JMSConnectionFactory" ifExists="replace" providerUrl="${weblogic.url}" serverType="weblogic" user="${weblogic.user}" password="${weblogic.password}">
+            <setAttribute name="JNDIName" value="${queue.connectionFactory}"/>
+            <setAttribute name="FlowControlEnabled" value="true"/>
+            <setAttribute name="DefaultRedeliveryDelay" value="0"/>
+            <setAttribute name="UserTransactionsEnabled" value="true"/>
+            <setAttribute name="XAConnectionFactoryEnabled" value="true"/>
+            <setAttribute name="Targets">:Name=${weblogic.server},Type=Server</setAttribute>
+        </createMBean>
+        <createMBean name=":Name=check_rule_response_queue,Type=JMSQueue" ifExists="replace" providerUrl="${weblogic.url}" serverType="weblogic" user="${weblogic.user}" password="${weblogic.password}">
+            <setAttribute name="JNDIName" value="${checkrule.response.queue}"/>
+            <setAttribute name="RedeliveryDelayOverride" value="10"/>
+            <setAttribute name="Parent" value=":Name=oms_jms_server,Type=JMSServer"/>
+        </createMBean>
+ 		<createMBean name=":Name=check_rule_request_queue,Type=JMSQueue" ifExists="replace" providerUrl="${weblogic.url}" serverType="weblogic" user="${weblogic.user}" password="${weblogic.password}">
+            <setAttribute name="JNDIName" value="${checkrule.request.queue}"/>
+            <setAttribute name="RedeliveryDelayOverride" value="10"/>
+            <setAttribute name="Parent" value=":Name=oms_jms_server,Type=JMSServer"/>
+        </createMBean>
+ 		<createMBean name=":Name=data_change_request_queue,Type=JMSQueue" ifExists="replace" providerUrl="${weblogic.url}" serverType="weblogic" user="${weblogic.user}" password="${weblogic.password}">
+            <setAttribute name="JNDIName" value="${datachange.request.queue}"/>
+            <setAttribute name="RedeliveryDelayOverride" value="10"/>
+            <setAttribute name="Parent" value=":Name=oms_jms_server,Type=JMSServer"/>
+       	</createMBean>
+        <createMBean name=":Name=cancel_job_request_queue,Type=JMSQueue" ifExists="replace" providerUrl="${weblogic.url}" serverType="weblogic" user="${weblogic.user}" password="${weblogic.password}">
+            <setAttribute name="JNDIName" value="${canceljob.request.queue}"/>
+            <setAttribute name="RedeliveryDelayOverride" value="10"/>
+            <setAttribute name="Parent" value=":Name=oms_jms_server,Type=JMSServer"/>
+       	</createMBean>
+	</target>
+
+	<!-- Need to register the JMX Mbean tasks with Ant -->
+	<target name="declare_jmx">
+		<taskdef name="configureMBean" classname="org.apache.tools.ant.taskdefs.optional.jmx.ConfigureMBeanTask" classpathref="compile.class.path"/>
+		<taskdef name="copyMBean" classname="org.apache.tools.ant.taskdefs.optional.jmx.CopyMBeanTask" classpathref="compile.class.path"/>
+		<taskdef name="removeMBean" classname="org.apache.tools.ant.taskdefs.optional.jmx.RemoveMBeanTask" classpathref="compile.class.path"/>
+		<taskdef name="createMBean" classname="org.apache.tools.ant.taskdefs.optional.jmx.CreateMBeanTask" classpathref="compile.class.path"/>
+		<taskdef name="invokeMBean" classname="org.apache.tools.ant.taskdefs.optional.jmx.InvokeMBeanTask" classpathref="compile.class.path"/>
+		<taskdef name="showMBean" classname="org.apache.tools.ant.taskdefs.optional.jmx.ShowMBeanTask" classpathref="compile.class.path"/>
+	</target>
+
+	<!-- Creates the tables needed by the Quartz scheduler -->
+	<target name="qtz_tables">
+	    <exec executable="sqlplus" dir="${sql.dir}">
+            <!-- <arg line="${oms.db.user}/${oms.db.password}@${oms.db.server}"/> -->
+            <arg line="${snore.db.user}/${snore.db.password}@${snore.db.server}"/>
+            <arg line="@createQuartzTables.sql"/>
+        </exec>
+	</target>
+
+	<!-- Creates a user quartz/password for non managed transactional access to the quartz tables -->
+	<target name="create_qtz_user" depends="drop_qtz_user">
+	    <exec executable="sqlplus" dir="${sql.dir}">
+            <arg line="${system.db.user}/${system.db.password}@${system.db.server}"/>
+            <arg line="@createQuartzUser.sql"/>
+        </exec>
+	</target>
+
+	<!-- Drops the quartz user -->
+	<target name="drop_qtz_user">
+	    <exec executable="sqlplus" dir="${sql.dir}">
+            <arg line="${oms.db.user}/${oms.db.password}@${oms.db.server}"/>
+            <arg line="@dropQuartzUser.sql"/>
+        </exec>
+	</target>
+
+	<!-- Run Javadocs -->
+	<target name="javadocs" depends="init">
+		<mkdir dir="${docs.dir}"/>
+		<mkdir dir="${docs.dir}/api"/>
+		<javadoc destdir="${docs.dir}/api">
+			<package name="com.bt.csam.oms.snore.*"/>
+			<sourcepath location="${basedir}"/>
+			<classpath>
+				<pathelement path="${weblogic.dir}/server/lib/weblogic.jar"/>
+				<pathelement path="${lib.dir}/quartz.jar"/>
+				<pathelement path="${lib.dir}/commons-logging.jar"/>
+				<pathelement path="${compile.class.path}"/>
+			</classpath>
+		</javadoc>
+                <zip zipfile="${docs.dir}/${application.name}_${application.version}_docs.zip" basedir="${docs.dir}/api" update="true"/>
+	</target>
+
+	<!-- Run ejbc to create the deployable jar file -->
+	<target name="ejbc" depends="jar_application">
+		<java classname="weblogic.ejbc" fork="yes" failonerror="yes" classpathref="compile.class.path" deprecation="true">
+			<sysproperty key="weblogic.home" value="${weblogic.dir}/server"/>
+			<arg line="-verbose -compiler javac ${dist.dir}/${application.name}_${application.version}.jar"/>
+		</java>
+	</target>
+
+	<!-- Cleanup the source directory and removes the build directory -->
+	<target name="clean" depends="clean_source">
+		<delete dir="${build.dir}"/>
+	</target>
+
+    <!-- Cleans the source directory - removes *.class, *.nbattrs, *.java~ -->
+    <target name="clean_source">
+        <delete>
+            <fileset dir="${basedir}" includes="**/*.class, **/*.java~, **/*.nbattrs, **/*.nbattrs~"/>
+        </delete>
+    </target>
+
+    <!-- Displays help information -->
+    <target name="help">
+         <echo message="clean -- Removes the build directory, and cleans the source directory"/>
+         <echo message="clean_source -- Cleans the source directory"/>
+         <echo message="update_descriptor -- Updates the SNORE deployment descriptors with the JNDI values found in the build.properties. MUST be run once before main build target"/>
+         <echo message="setup -- Sets up external configuration necessary before snore is built. Includes creating sql tables and JMS resources. MUST be run once before main build target"/>
+         <echo message="build -- Builds the snore component, and deploys to BEA"/>
+         <echo message="javadocs -- Creates the javadocs for snore"/>
+    </target>
+</project>
+

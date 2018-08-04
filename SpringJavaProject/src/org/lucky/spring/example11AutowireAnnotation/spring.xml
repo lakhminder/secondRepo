@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+<!ENTITY contextInclude SYSTEM "org/springframework/web/portlet/context/WEB-INF/contextInclude.xml">
+]> -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<context:annotation-config/>
+
+
+	
+	<bean id="triangle" class="org.lucky.spring.example11AutowireAnnotation.shapes.Triangle" >
+		<property name="pointA" ref="pointA"/>
+		<property name="pointB" ref="pointB"/>
+		<property name="pointC" ref="pointC"/> 
+	</bean>
+	
+	<bean id="circle" class="org.lucky.spring.example11AutowireAnnotation.shapes.Circle" >
+		<!-- This is being autowired in Circle.java
+		<property name="center" ref="center"/>-->
+	</bean>
+	
+	
+	
+	<bean id="pointC" class="org.lucky.spring.example11AutowireAnnotation.shapes.Point">
+		<qualifier value="circleRelated" />
+		<property name="x" value="0"/>
+		<property name="y" value="0"/>
+	</bean>
+	
+	<bean id="pointA" class="org.lucky.spring.example11AutowireAnnotation.shapes.Point">
+		<property name="x" value="20"/>
+		<property name="y" value="0"/>
+	</bean>
+	
+	<bean id="pointB" class="org.lucky.spring.example11AutowireAnnotation.shapes.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="20"/>
+	</bean>
+	
+	
+	<!-- Since we used <context:annotation-config/> above
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" >
+	  	
+	</bean> -->
+</beans>

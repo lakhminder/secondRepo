@@ -1,0 +1,33 @@
+  <?xml version="1.0" encoding="UTF-8" ?> 
+<definitions xmlns:tns="http://www.qwest.com/sampleWebService" xmlns:wsr="http://www.openuri.org/2002/10/soap/reliability/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding" xmlns:conv="http://www.openuri.org/2002/04/wsdl/conversation/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.qwest.com/sampleWebService">
+<message name="sum">
+  <part xmlns:partns="http://www.w3.org/2001/XMLSchema" type="partns:int" name="intVal" /> 
+  <part xmlns:partns="http://www.w3.org/2001/XMLSchema" type="partns:int" name="intVal0" /> 
+  </message>
+<message name="sumResponse">
+  <part xmlns:partns="http://www.w3.org/2001/XMLSchema" type="partns:int" name="result" /> 
+  </message>
+<portType name="SampleServicePort">
+<operation name="sum">
+  <input message="tns:sum" /> 
+  <output message="tns:sumResponse" /> 
+  </operation>
+  </portType>
+<binding type="tns:SampleServicePort" name="SampleServicePort">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" /> 
+<operation name="sum">
+  <soap:operation style="rpc" soapAction="" /> 
+<input>
+  <soap:body namespace="http://www.qwest.com/sampleWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" /> 
+  </input>
+<output>
+  <soap:body namespace="http://www.qwest.com/sampleWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" /> 
+  </output>
+  </operation>
+  </binding>
+<service name="SampleService">
+<port name="SampleServicePort" binding="tns:SampleServicePort">
+  <soap:address location="http://localhost:7001/webservice/sampleService" /> 
+  </port>
+  </service>
+  </definitions>

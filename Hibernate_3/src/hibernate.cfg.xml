@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+  <!-- <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:lucky</property> -->
+  <property name="hibernate.connection.url">jdbc:oracle:thin:@//localhost:1521/orclpdb</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.connection.username">lucky</property>
+  <property name="hibernate.connection.password">lucky</property>
+  <property name="hibernate.connection.pool_size">1</property>
+  <!-- For No cache
+  <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+   -->
+   <!-- For Second Level Cache -->
+   <property name="cache.use_second_level_cache">true</property>
+   <property name="cache.use_query_cache">true</property>
+  <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+  
+   <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+   <property name="hibernate.hbm2ddl.auto">create</property>
+  
+  
+  <mapping class="org.lucky.hibernate.example1.UserDetails"/>
+  <mapping class="org.lucky.hibernate.example2.User"/>
+  <mapping class="org.lucky.hibernate.example3.User"/>
+  <mapping class="org.lucky.hibernate.example4.User"/>
+  <mapping class="org.lucky.hibernate.example5primaryKey.User5"/>
+  <mapping class="org.lucky.hibernate.example6embeddedObject.User6"/>
+  <mapping class="org.lucky.hibernate.example7elementCollection.User7"/>
+  <mapping class="org.lucky.hibernate.example8collectionId.User8"/>
+  <mapping class="org.lucky.hibernate.example9eagerLoadingOfCollection.User9"/>
+  
+  <mapping class="org.lucky.hibernate.example10oneToOneMapping.User10"/>
+  <mapping class="org.lucky.hibernate.example10oneToOneMapping.Vehicle"/>
+  
+  <mapping class="org.lucky.hibernate.example11oneToManyMapping.User11"/>
+  <mapping class="org.lucky.hibernate.example11oneToManyMapping.Vehicle1"/>
+  
+  <mapping class="org.lucky.hibernate.example12manyToManyMapping.User12"/>
+  <mapping class="org.lucky.hibernate.example12manyToManyMapping.Vehicle12"/>
+  
+  <mapping class="org.lucky.hibernate.example13oneToManyMappingWithExtraTable.User13"/>
+  <mapping class="org.lucky.hibernate.example13oneToManyMappingWithExtraTable.Vehicle13"/>
+  
+  <mapping class="org.lucky.hibernate.example14oneToManyWithCascade.User14"/>
+  <mapping class="org.lucky.hibernate.example14oneToManyWithCascade.Vehicle14"/>
+  
+  <mapping class="org.lucky.hibernate.example15inheritance.User15"/>
+  <mapping class="org.lucky.hibernate.example15inheritance.Vehicle15"/>
+  <mapping class="org.lucky.hibernate.example15inheritance.TwoWheeler"/>
+  <mapping class="org.lucky.hibernate.example15inheritance.FourWheeler"/>
+  
+  <mapping class="org.lucky.hibernate.example16hql.User16"/>
+  
+  <mapping class="org.lucky.hibernate.example17namedAndNativeQuery.User17"/>
+  
+  <mapping class="org.lucky.hibernate.example18criteria.User18"/>
+  
+  <mapping class="org.lucky.hibernate.example19projections.User19"/>
+  
+  <mapping class="org.lucky.hibernate.example20queryByExample.User20"/>
+  
+  <mapping class="org.lucky.hibernate.example21cache.User21"/>
+  
+ </session-factory>
+</hibernate-configuration>

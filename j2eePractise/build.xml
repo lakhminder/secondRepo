@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="j2eePractise" default="build" basedir=".">
+	
+	<property file="build.properties"/>
+	<property file="build-local.properties"/>
+	
+	<property name="curr.dir" value="${basedir}/${Application_name}"/>
+	<property name="src.dir" value="${curr.dir}/src"/>
+	<property name="web-inf.dir" value="${curr.dir}/WEB-INF"/>
+	<property name="classes.dir" value="${web-inf.dir}/classes"/>
+	<property name="build.dir" value="build"/>
+	<property name="lib.dir" value="lib"/>
+	
+	<path id="jar.files">
+		    <fileset dir="${lib.dir}">
+		      <include name="*.jar"/>
+		    </fileset>
+	</path>
+	
+	
+	<!--	<path id="weblogic.jar.files">
+	    <fileset dir="WebRoot/WEB-INF/lib">
+	      <include name="weblogic.jar"/>
+	    </fileset>
+	  </path>
+	<taskdef name="wldeploy" classpathref="weblogic.jar.files" classname="weblogic.ant.taskdefs.management.WLDeploy" /> 
+	-->
+	
+	<taskdef name="wldeploy" classpath="${lib.dir}/weblogic.jar" classname="weblogic.ant.taskdefs.management.WLDeploy" />
+	
+	 <target name="delete" description="Cleans build directory.">
+	                <echo>clean is called</echo>
+	                <delete dir="${build.dir}"/>
+	                
+	 </target>
+	
+	<target name="compile" description="compiles java file to classes directory">
+		<echo>compile is called</echo>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="jar.files"/>
+		                
+	</target>
+			    	
+	<!--		 
+	<target name="setenv">
+	<exec dir="D:\bea\weblogic81\server\bin" executable="D:\bea\weblogic81\server\bin\setWLSEnv.cmd"></exec>
+	</target> -->
+
+	<!-- Build the war file -->
+	<target name="build" depends="mkdir, compile">
+		<jar basedir="${curr.dir}" destfile="${deploy.dir}/${Application_name}.war" excludes="**/src/*">
+			<manifest>
+					<attribute name="war-Path" value="${deploy.dir}/${Application_name}.war" />
+				
+			</manifest> 			
+		</jar>
+	<!--	<jar basedir="${build.classes.dir}" includes="*.properties, *.xml, com/bt/andes/nrs/*, com/bt/andes/nrs/util/*, com/bt/andes/nrs/client/*" destfile="${dist.dir}/${servletapplication.name}.jar">
+					<manifest>
+						<attribute name="Class-Path" value="${servletapplication.name}.jar" />
+					</manifest>
+				</jar> -->	
+	</target>
+	
+	<!-- Build the directory for war file -->
+	<target name="mkdir">
+		<mkdir dir="${build.dir}"/>		
+	</target>
+		
+	<!-- deploy the war file to weblogic 	-->
+
+	<target name="deploy" depends="build" description="deploys an application to a single WebLogic Server instance">
+		
+		 <wldeploy action="deploy"	      
+			  		source="${deploy.dir}/${deploy.file}" 
+					name="${Application_name}"
+		      		user="${admin.username}" 
+					password="${admin.password}"
+					verbose="true" 
+					adminurl="t3://localhost:7001"
+		      		debug="true"
+		 			upload="true"
+					targets="myserver"/>	
+
+		<!--<wldeploy action="${action}"      
+    	  	  	  source="${dist.dir}/${project.distname}.war"
+    	  	  	  name="${project.distname}"
+    	  	  	  user="${wls.username}" 
+    	  	  	  password="${wls.password}"
+    	  	  	  verbose="true"
+    	  	      adminurl="${wls.t3.url}" 
+    	  	  	  remote="true"  upload="true"
+    	  	  	  targets="${wls.server}"/>	-->
+	</target>
+		
+
+	
+
+</project>

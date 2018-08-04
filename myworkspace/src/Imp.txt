@@ -1,0 +1,5 @@
+Struts:
+=======================================
+logic:iterate and c:forEach are good when iterating over collection of bean object
+
+======================================

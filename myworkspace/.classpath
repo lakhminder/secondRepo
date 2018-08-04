@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="Hibernate/|fileCopier/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/fileCopier"/>
+	<classpathentry kind="src" path="src/Hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/ojdbc14.jar"/>
+	<classpathentry exported="true" kind="lib" path="src/WebServiceClientForAxisService/lib/sampleClientForAxis.jar"/>
+	<classpathentry kind="lib" path="lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="lib/String/lang.jar"/>
+	<classpathentry kind="lib" path="lib/maven/json-lib-1.0-jdk13.jar"/>
+	<classpathentry kind="lib" path="lib/xml_beans/xmlbeans-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-beanutils-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-collections-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-digester.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-httpclient-2.0-rc2.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-lang-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/apache-commons/commons-validator.jar"/>
+	<classpathentry kind="lib" path="lib/maven/ezmorph-1.0.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="lib/weblogic_103/weblogic.jar"/>
+	<classpathentry kind="lib" path="lib/weblogic_103/webserviceclient.jar"/>
+	<classpathentry kind="lib" path="lib/weblogic_103/webserviceclient+ssl.jar"/>
+	<classpathentry kind="lib" path="lib/weblogic_103/webservices.jar"/>
+	<classpathentry kind="lib" path="lib/xml_beans/xbean.jar"/>
+	<classpathentry kind="lib" path="lib/xml_beans/xerces.jar"/>
+	<classpathentry kind="lib" path="lib/xml_beans/xml-apis.jar"/>
+	<classpathentry kind="lib" path="lib/xml_beans/XmlSchema-1.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/xqrl.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/api.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/bea_wls_async_response.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/bea_wls_remote_deployer.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/diagnostics-agent.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/EccpressoAsn1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/EccpressoCore.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/EccpressoJcae.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/jms51-interop.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/jrmp.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/jrmpclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/jsafeFIPS.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/mejb.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/mysql-connector-java-commercial-5.0.3-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/weblogic.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/weblogic-spring.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/webserviceclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/webserviceclient+ssl.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/webservices.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlbase.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlcipher.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlcommons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlconnector.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wldb2.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wldeploy.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlfullclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlinformix.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wl-j2ee-client.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wljarbuilder.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wljmsclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wljmxclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wllog4j.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlnmclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wloracle.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlsafclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wls-api.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlspy.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlsqlserver.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlsybase.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlutil.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlw-langx.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlw-system.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wlw-wsee-soapfault.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wseeclient.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/wsse.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/xmlx.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/org.apache.axis_1.4.0.v201005080400/lib/axis.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/org.apache.axis_1.4.0.v201005080400/lib/axis-ant.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/org.uddi4j_2.0.5.v200805270300.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/com.ibm.icu_4.2.1.v20100412.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/com.jcraft.jsch_0.1.41.v200903070017.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/java_cup.runtime_0.10.0.v201005080400.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.activation_1.1.0.v201005080500.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.jws_2.0.0.v201005080400.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.mail_1.4.0.v201005080615.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.servlet.jsp_2.0.0.v200806031607.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.servlet_2.5.0.v200910301333.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.wsdl_1.5.1.v201005080630.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.wsdl_1.6.2.v201005080631.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.xml.bind_2.0.0.v20080604-1500.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.xml.bind_2.1.9.v201005080401.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/javax.xml_1.3.4.v201005080400.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/net.sourceforge.lpg.lpgjavaruntime_1.1.0.v201004271650.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/softwares/Eclipse_ee/eclipse-jee-helios-win32/eclipse/plugins/org.eclipse.datatools.enablement.sybase.ui_1.0.0.v200906090458.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.adaptive.harvester.utils_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.bsu_5.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.comdev_5.6.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.comdev_5.9.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.common-plugin_2.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.config_5.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.gpr_2.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.gpr_2.8.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.gpr-impl_2.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.gpr-impl_2.8.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.gpr-xbean_2.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.gpr-xbean_2.8.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.instinfo_5.7.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.paf_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.paf-impl_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.patch-client_3.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.patch-common_3.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.plugin_2.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.plugin-wizard_2.1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.quickstart_10.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.uninstall_5.9.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.wizard_5.6.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.wlw-plaf_5.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.xmldh_2.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.cie.xmldh_2.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.annogen_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.antlr.runtime_2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.antlr_2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.commons.collections_3.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.commons.lang_2.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.commons.logging.api_1.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.commons.logging_1.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.commons.net_1.0.0.0_1-4-1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.commons.pool_1.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.dom_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.log4j_1.0.0.0_1-2-13.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.log4j_1.2.13.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.logging_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.oro_1.0.0.0_2-0-8.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.regexp_1.0.0.0_1-4.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.xalan_2.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.xerces.resolver_2.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.xerces.xml-apis_2.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.xercesImpl_2.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.xml.security_1.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache.xml.serializer_2.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.apache_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.bea.opensaml2_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.bea.opensaml_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.beangen_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.beaninfo_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.binxml_0.9.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.certj_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.engine.api_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.engine.impl_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.api_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.i18n_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.impl_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.jdkutils_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.providers.env_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.providers.utils_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.saml2.manage_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.saml2.utils_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.saml2_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.saml.utils_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.utils_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.xacml_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.common.security.xacmlproviders.utils_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.compat.wl.90_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.datasource6.binding_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.datasource6_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.datasource_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.descriptor.j2ee.binding_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.descriptor.j2ee_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.descriptor.settable.binding_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.descriptor.wl.binding_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.descriptor.wl_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.descriptor_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.diagnostics.accessor.binding_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.diagnostics.accessor_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.diagnostics.core_2.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.diagnostics.instrumentor_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.diagnostics.logging_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.diagnostics.notifications_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.diagnostics.query_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.diagnostics.snmp_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.ejbgen_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.http.pubsub.binding_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.http.pubsub.mbean_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.http.pubsub_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.jarbuilder_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.jatmi_1.2.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.jmspool_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.jsafe_3.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.kodo.integration.binding_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.kodo.integration.tools_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.kodo.integration_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.kodo_1.0.0.0_4-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.ldapjdk_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.logging_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.management.core.binding_2.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.management.core_2.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.management.jmx_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.mbean.maker_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.mbean.support_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.messaging.kernel_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.monitoring.harvester.api_2.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.monitoring.harvester.jmx_2.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.nodemanager.plugin_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.process_5.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.redef.binding_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.redef_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.redefagent_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.repackaged.apache.bcel_5.2.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.repackaged.apache.commons.logging_1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.repackaged.asm.commons_3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.repackaged.asm.tree_3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.repackaged.asm.util_3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.repackaged.asm_3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.repackaged.aspectj.aspectjweaver_5.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.repackaged.jdt_3.2.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.resourcepool_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.serp_1.14.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.store.admintool_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.store.gxa_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.store.jdbc_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.store_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.timers_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.transaction_2.5.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.utils.agent_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.utils.classloaders_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.utils.compiler_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.utils.expressions_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.utils.full_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.utils.wrapper_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.utils_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.commons.logging_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.lifecycle_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.rmi.client_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.saaj_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.security.auth_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.security.digest_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.security.identity_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.security.logger_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.security.wls_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.security_1.0.0.0_5-0-2-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.socket.api_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.stax_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.web.api_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.weblogic.workmanager_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.woodstox_1.0.0.0_3-2-4.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.workarea_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.ws.axis_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.ws.wsdl4j_1.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xml.beaxmlbeans_1.0.0.0_2-4-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xml.beaxmlbeans_2.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xml.stax_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xml.staxb.buildtime_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xml.staxb.runtime_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xml.weblogic.xpath_1.1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xml.xmlbeans_1.0.0.0_2-4-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xml.xmlbeans_2.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xquery.beaxmlbeans-interop_0.9.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xquery.xmlbeans-interop_0.9.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.core.xquery_0.9.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.mbean.typing.util_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.web.pubsub.jms_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.bea.web.pubsub.security_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/com.sun.jimi_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.el_2.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.jaxb.xjc_2.1.6.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.jaxb_2.1.6.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.jaxws.fastinfoset_2.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.jaxws.mimepull_1.0.144.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.jaxws.resolver_2.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.jaxws.rt_2.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.jaxws.tools_1.0.0.0_2-1-3.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.jstl_1.2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.stax.ex_1.0.0.0_1-2.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/glassfish.xmlstreambuffer_0.5.221.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.activation_1.1.0.0_1-1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.activation_1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.annotation_1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.ejb_3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.enterprise.deploy_1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.interceptor_1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.jdo_2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.jms_1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.jsf_1.2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.jsp_1.1.0.0_2-1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.jws_2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.mail_1.1.0.0_1-1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.mail_1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.management.j2ee_1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.management.remote_1.0.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.management_1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.persistence_1.0.0.0_1-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.resource_1.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.security.jacc_1.0.0.0_1-1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.servlet_1.0.0.0_2-5.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.transaction_1.0.0.0_1-1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.bind_2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.registry_1.0.0.0_1-0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.rpc_1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.rpc_1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.soap_1.3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.soap_1.3.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.stream_1.0.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.stream_1.1.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javax.xml.ws_2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/javolution_3.7.19.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/joda.time_1.2.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/monfox.dsnmp.agent_1.0.0.0_4-6-5.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/org.apache.ant.patch_1.1.0.0_1-6-5.jar"/>
+	<classpathentry kind="lib" path="C:/Lucky/Lims required jars/weblogic_103/modules/org.apache.openjpa_2.2.0.0_1-1-0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

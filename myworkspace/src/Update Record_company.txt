@@ -1,0 +1,7 @@
+// Update the entries with details and Date of what is being changed
+Folder: src/junit(Eclipse automatically added system library junit3 in build path)
+Folder: lib/weblogic(added webservices.jar & webserviceclient.jar)
+moved weblogic.jar from /lib to /lib/weblogic
+Folder: src/WebServiceClientForAxisService
+
+8 Apr 2012 - Hibernate project

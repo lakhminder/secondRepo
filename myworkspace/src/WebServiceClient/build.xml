@@ -1,0 +1,39 @@
+<project name="SampleWebService" default="client" basedir=".">
+
+
+  <property file="build.properties"/>
+  <property name="build.compiler" value="${compiler}"/>
+  <property name="build.sysclasspath" value="last"/>
+  <property name="source" value="."/>
+  <property name="build" value="${source}/build"/>
+  <property name="isysbuild" value="${source}/isysbuild"/>
+  <property name="ejb_jar_file" value="SRPFWebService.jar" />
+  <property name="war_file" value="SRPFWebService.war" />
+  <property name="ear_file" value="SRPFWebService.ear" />
+  <property name="client_jar_file" value="SRPFWebService_client.jar" />
+  <property name="namespace" value="http://www.cramer.com/qwest/srpf"/>
+  <property name="ws_xsd_jar_file" value="SRPFWebServiceXsd.jar" />
+  <property name="isys_xsd_jar_file" value="isysXsd.jar" />
+  <property name="common.jars.dir" value="common/jars"/>
+  <property name="release.jar" value="release/jars"/>	
+  <property name="release.ear" value="release/ears"/>		
+
+
+  
+	
+	<!-- Add all jars of weblogic-->
+	<taskdef name="clientgen" classname="weblogic.ant.taskdefs.webservices.clientgen.ClientGenTask" classpath="${weblogic.classpath}" />
+
+
+	<target name="client" >
+	    <delete dir="${dist.dir}" />
+	    <mkdir dir="${dist.dir}" />
+	    
+		<clientgen
+		    wsdl="${wsdl.url}"
+		    packageName="com.lucky.sampleService.client"
+		    clientJar="${dist.dir}/sampleClient.jar"
+			/>
+	  </target>
+
+</project>

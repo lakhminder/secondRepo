@@ -1,0 +1,22 @@
+To set this project
+a) import the hibernate3 user library(already built => refer UserLibrariesInfo.txt)
+
+==================================
+1) @NotFound : Hibernate provides the annotation @NotFound to suppress exception incase the 
+	ManytoOne the relation is not found in DB.
+	
+2) @org.hibernate.annotation.Entity(selectBeforeUpdate=true) => is used to tell hibernate to do a select before update statement to 
+	make sure update statement is fired only incase there is some change in the object state.Used when chenging the detached object 
+	to persistent Object(i.e making session.update(user) after doing session.close())
+	
+3) Save Vs saveandflush vs persist vs ...
+http://stackoverflow.com/questions/12122489/jparepository-transaction-and-repository-saveandflush
+http://stackoverflow.com/questions/161224/what-are-the-differences-between-the-different-saving-methods-in-hibernate
+http://stackoverflow.com/questions/21203875/difference-between-save-and-saveandflush-in-spring-data-jpa
+https://forum.hibernate.org/viewtopic.php?t=951275&highlight=difference+persist+save
+http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html/objectstate.html (11.6/11.7)
+
+4) States 
+transient => New
+Detached => disassociated with session(but with a identifier)
+Persistent => associated with current session

@@ -1,0 +1,1 @@
+response.sendRedirect(JSP/Servlet) => will be send to browser to initiate another request to JSP/servlet

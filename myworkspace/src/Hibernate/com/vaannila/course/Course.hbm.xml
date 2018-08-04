@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="com.vaannila.course.Course" table="COURSES">
+	<meta attribute="class-description">
+	This class contains the course details.
+	</meta>
+	<id name="courseId" type="long" column="COURSE_ID">
+		<generator class="native"/>
+	</id>
+	<property name="courseName" type="string" column="COURSE_NAME" not-null="true" />
+</class>
+
+</hibernate-mapping>

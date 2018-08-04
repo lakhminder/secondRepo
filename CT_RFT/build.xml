@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="test_web" default="build" basedir=".">
+	
+		
+	<property name="WebRoot.dir" value="${basedir}/WebRoot"/>
+	<property name="WEB-INF.dir" value="${WebRoot.dir}/WEB-INF"/>
+	<property name="META-INF.dir" value="${WebRoot.dir}/META-INF"/>
+	<property name="build.dir" value="build"/>
+	
+	<property file="build.properties"/>
+	
+	<!--	<path id="weblogic.jar.files">
+	    <fileset dir="WebRoot/WEB-INF/lib">
+	      <include name="weblogic.jar"/>
+	    </fileset>
+	  </path>
+	<taskdef name="wldeploy" classpathref="weblogic.jar.files" classname="weblogic.ant.taskdefs.management.WLDeploy" /> 
+	-->
+	
+	<taskdef name="wldeploy" classpath="${WEB-INF.dir}/lib/weblogic.jar" classname="weblogic.ant.taskdefs.management.WLDeploy" />
+	 <target name="delete" description="Cleans build directory.">
+	                <echo>clean is called</echo>
+	                <delete dir="${build.dir}"/>
+	                
+	 </target>
+			    	
+	<!--		 
+	<target name="setenv">
+	<exec dir="D:\bea\weblogic81\server\bin" executable="D:\bea\weblogic81\server\bin\setWLSEnv.cmd"></exec>
+	</target> -->
+
+	<!-- Build the war file -->
+	<target name="build" depends="mkdir">
+		<jar basedir="${WebRoot.dir}" destfile="${deploy.dir}/${deploy.file}">
+			<manifest>
+					<attribute name="war-Path" value="${deploy.dir}/${deploy.file}" />
+				
+			</manifest> 			
+		</jar>
+	<!--	<jar basedir="${build.classes.dir}" includes="*.properties, *.xml, com/bt/andes/nrs/*, com/bt/andes/nrs/util/*, com/bt/andes/nrs/client/*" destfile="${dist.dir}/${servletapplication.name}.jar">
+					<manifest>
+						<attribute name="Class-Path" value="${servletapplication.name}.jar" />
+					</manifest>
+				</jar> -->	
+	</target>
+	
+	<!-- Build the directory for war file -->
+	<target name="mkdir">
+		<mkdir dir="${build.dir}"/>		
+	</target>
+		
+	<!-- deploy the war file to weblogic 
+	at the moment doesnot work-->
+	<target name="deploy" depends="build" description="deploys an application to a single WebLogic Server instance">
+		
+		 <wldeploy action="deploy"	      
+			  		source="${deploy.dir}/${deploy.file}" 
+					name="testing" 
+		      		user="${admin.username}" 
+					password="${admin.password}"
+					verbose="true" 
+					adminurl="t3://localhost:7001"
+		      		debug="true"
+		 			upload="true"
+					targets="myserver"/>	
+
+		<!--<wldeploy action="${action}"      
+    	  	  	  source="${dist.dir}/${project.distname}.war"
+    	  	  	  name="${project.distname}"
+    	  	  	  user="${wls.username}" 
+    	  	  	  password="${wls.password}"
+    	  	  	  verbose="true"
+    	  	      adminurl="${wls.t3.url}" 
+    	  	  	  remote="true"  upload="true"
+    	  	  	  targets="${wls.server}"/>	-->
+	</target>
+		
+
+	
+
+</project>

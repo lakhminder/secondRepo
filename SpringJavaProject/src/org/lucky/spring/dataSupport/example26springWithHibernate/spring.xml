@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="org.lucky.spring.dataSupport.example26springWithHibernate.dao" />
+	
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:lucky"/>
+		<property name="username" value="lucky_user"/>
+		<property name="password" value="lucky_user"/>
+		<property name="initialSize" value="5"/>
+		<property name="maxActive" value="10"/>
+	
+	</bean>
+	<!-- Wiring the dataSource into the template/SpringSupportClass -->
+	<!-- <bean id="simpleDaoImpl" class="org.lucky.spring.dataSupport.example25usingDaoSupport.dao.SimpleDaoImpl">
+		<property name="dataSource" ref="dataSource"/>
+	</bean> -->
+	
+	<bean id="jdbcDaoImpl" class="org.lucky.spring.dataSupport.example26springWithHibernate.dao.JdbcDaoImpl">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!--3 hibernate properties are defined and specific hibernate.cfg property is defined as prop 
+	Annotate the model objects as hibernate Entity see Circle.java
+	 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="packagesToScan" value="org.lucky.spring.dataSupport.example26springWithHibernate.model"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>

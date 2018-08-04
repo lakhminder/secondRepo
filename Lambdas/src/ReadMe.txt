@@ -1,0 +1,1 @@
+import as Java 8 project so only JRE 8 system library is needed

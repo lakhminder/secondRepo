@@ -1,0 +1,24 @@
+JavaScript/Forms
+===========
+http://www.quirksmode.org/js/forms.html
+===========
+
+JSP
+===========
+http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/JSPIntro.html
+===========
+
+Struts 1.2
+===========
+http://struts.apache.org/1.2.x/userGuide/struts-logic.html#iterate
+===========
+
+Axis
+===========
+http://ws.apache.org/axis/java/user-guide.html
+===========
+
+Outer Joins
+===========
+http://www.orafaq.com/node/855
+===========
